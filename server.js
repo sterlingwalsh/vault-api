@@ -29,6 +29,9 @@ if(process.env.NODE_ENV === 'development'){
     app.use(cors(corsOptions));
 }
 
+steamapi.searchGames('doo').then(console.log);
+
+
 app.post('/:page?', (req, res) => vault.getVaultPage(req, res));
 app.post('/game', (req, res) => game.getGameData(req, res));
 
