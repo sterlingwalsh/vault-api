@@ -1,13 +1,14 @@
 const fs = require('fs');
-const util = require('util');
+
 const fetch = require('node-fetch')
 const FuzzySearch = require('fuzzy-search');
-
-const readFile = util.promisify(fs.readFile);
 const FILE_STEAM_APPLIST = './data/steam_applist.json';
 
 const URL_STEAM_APPLIST = 'http://api.steampowered.com/ISteamApps/GetAppList/v2';
 const URL_STEAM_APPDETAILS = 'https://store.steampowered.com/api/appdetails?appids=';
+
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
 
 let searcher;
 
@@ -61,5 +62,6 @@ const getGameInfo = async(appid) => {
 
 module.exports = {
     searchGames,
-    getGameInfo
+    getGameInfo,
+    getAppList
 }
